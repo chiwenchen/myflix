@@ -1,10 +1,16 @@
-class UiController < ApplicationController
-  before_filter do
+ class UiController < ApplicationController
+  before_action do
     redirect_to :root if Rails.env.production?
   end
 
-  layout "application"
+  #layout "application"
 
   def index
+  	
   end
+
+  def home
+
+  end
+
 end

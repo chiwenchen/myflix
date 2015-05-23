@@ -12,4 +12,19 @@
  *= require bootstrap
  *= require whitespace-reset
  *= require_tree .
+ *= require bootstrap
+
+ *= require whitespace-reset
+ *= require admin
+ *= require general
+ *= require genre
+ *= require header
+ *= require home
+ *= require invite
+ *= require people
+ *= require public_pages
+ *= require queue
+ *= require user
+ *= require videos
+ *= require account_and_billing
 */
