@@ -6,13 +6,47 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Category.create(title: 'Science Fiction')
-Category.create(title: 'Thriller')
-Category.create(title: 'Comedy')
+science = Category.create(title: 'Science Fiction')
+thriller = Category.create(title: 'Thriller')
+comedy = Category.create(title: 'Comedy')
+action = Category.create(title: 'Action')
 
-Video.create(title: 'Inception', description: 'Very cool movie', small_cover_url: '/tmp/inception_small.jpg', large_cover_url: '/tmp/inception_large.jpg', category_id: 2)
-Video.create(title: 'Interstellar', description: 'Very cool movie', small_cover_url: '/tmp/interstellar_small.jpg', large_cover_url: '/tmp/interstellar_large.jpg', category_id: 2)
-Video.create(title: 'Mission Impossible 3', description: 'Very cool movie', small_cover_url: '/tmp/MI3_small.jpg', large_cover_url: '/tmp/MI3_large.jpg', category_id: 1)
-Video.create(title: 'Insidious', description: 'Very cool movie', small_cover_url: '/tmp/insidious_small.jpg', large_cover_url: '/tmp/insidious_large.jpg', category_id: 3)
-Video.create(title: 'Monk', description: 'Very cool movie', small_cover_url: '/tmp/monk_small.jpg', large_cover_url: '/tmp/monk_large.jpg', category_id: 4)
+Video.create(title: 'Inception', 
+            description: 'Very cool movie',
+            small_cover_url: '/tmp/inception_small.jpg',
+            large_cover_url: '/tmp/inception_large.jpg',
+            category: science)
+Video.create(title: 'Interstellar', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/interstellar_small.jpg', 
+            large_cover_url: '/tmp/interstellar_large.jpg', 
+            category: science)
+Video.create(title: 'Mission Impossible 3', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/MI3_small.jpg',
+            large_cover_url: '/tmp/MI3_large.jpg', 
+            category: action)
+Video.create(title: 'Insidious', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/insidious_small.jpg', 
+            large_cover_url: '/tmp/insidious_large.jpg', 
+            category: thriller)
+Video.create(title: 'Monk', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/monk_small.jpg', 
+            large_cover_url: '/tmp/monk_large.jpg', 
+            category: comedy)
+
+
+
+
+
+
+
+
+
+
+
+
+
 

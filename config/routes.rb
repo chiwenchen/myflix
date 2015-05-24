@@ -2,11 +2,11 @@ Myflix::Application.routes.draw do
 
   root to: 'videos#index'
 
-  resources :categories
+  resources :categories, only: :show
   
-  resources :videos do
+  resources :videos, only: [:index, :show] do
     member do
-      get :video
+      get :video 
     end
   end
   
