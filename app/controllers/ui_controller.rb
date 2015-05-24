@@ -6,7 +6,7 @@
   #layout "application"
 
   def index
-  	
+    
   end
 
   def home

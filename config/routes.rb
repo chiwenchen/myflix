@@ -1,16 +1,16 @@
 Myflix::Application.routes.draw do
 
-	root to: 'videos#index'
+  root to: 'videos#index'
 
-	resources :categories
-	
-	resources :videos do
-		member do
-			get :video
-		end
-	end
-	
-	get '/home', to: 'videos#home'
+  resources :categories
+  
+  resources :videos do
+    member do
+      get :video
+    end
+  end
+  
+  get '/home', to: 'videos#home'
   get ':controller(/:action)' # non-resourceful routes 
 
 
