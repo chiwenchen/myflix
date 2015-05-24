@@ -7,8 +7,9 @@ class VideosController < ApplicationController
     @categories = Category.all
   end
 
-  def video
+  def show
     @video = Video.find(params[:id])
+    render 'video'
   end
 
   
