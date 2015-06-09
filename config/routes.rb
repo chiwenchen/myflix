@@ -8,6 +8,7 @@ Myflix::Application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/signout', to: 'sessions#destroy'
+  get '/front', to: 'pages#front'
 
   resources :users, only: [:create]
 
@@ -15,7 +16,6 @@ Myflix::Application.routes.draw do
   resources :videos, only: [:index, :show] do
     collection do
       get :search;
-      get :front
     end
     member do
       get :video 

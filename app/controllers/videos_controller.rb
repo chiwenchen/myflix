@@ -19,10 +19,4 @@ class VideosController < ApplicationController
     @result = Video.search_by_title(params[:search_term])
   end
 
-  def front
-
-  end
-
-  
-
 end

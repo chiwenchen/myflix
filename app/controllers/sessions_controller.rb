@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
   def destroy
     flash[:warning] = "#{current_user.name}, See you next time"
     session[:user_id] = nil
-    redirect_to front_videos_path
+    redirect_to front_path
   end
 end

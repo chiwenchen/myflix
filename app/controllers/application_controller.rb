@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def access_denied
     flash[:danger] = 'You need to register or sign in to continue access'
-    redirect_to front_videos_path
+    redirect_to front_path
   end
 
 end
