@@ -21,6 +21,34 @@ Video.create(title: 'Interstellar',
             small_cover_url: '/tmp/interstellar_small.jpg', 
             large_cover_url: '/tmp/interstellar_large.jpg', 
             category: science)
+Video.create(title: 'Interstellar', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/interstellar_small.jpg', 
+            large_cover_url: '/tmp/interstellar_large.jpg', 
+            category: science)
+Video.create(title: 'Interstellar', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/interstellar_small.jpg', 
+            large_cover_url: '/tmp/interstellar_large.jpg', 
+            category: science)
+Video.create(title: 'Interstellar', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/interstellar_small.jpg', 
+            large_cover_url: '/tmp/interstellar_large.jpg', 
+            category: science)
+Video.create(title: 'Interstellar', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/interstellar_small.jpg', 
+            large_cover_url: '/tmp/interstellar_large.jpg', 
+            category: science)
+Video.create(title: 'Interstellar', 
+            description: 'Very cool movie', 
+            small_cover_url: '/tmp/insidious_small.jpg', 
+            large_cover_url: '/tmp/interstellar_large.jpg', 
+            category: science,
+            created_at: 1.day.ago)
+
+
 Video.create(title: 'Mission Impossible 3', 
             description: 'Very cool movie', 
             small_cover_url: '/tmp/MI3_small.jpg',

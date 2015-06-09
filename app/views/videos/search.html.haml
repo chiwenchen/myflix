@@ -1,0 +1,4 @@
+- @result.each do |video|
+  = link_to video do 
+    / video is shorthnd for video_path(video) 
+    = image_tag video.small_cover_url
