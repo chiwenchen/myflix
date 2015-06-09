@@ -1,6 +1,9 @@
 class VideosController < ApplicationController
-  def index
 
+  before_action :require_user, except: [:front, :index]
+
+  def index
+    #this is the index for all UI
   end
 
   def home
@@ -17,6 +20,7 @@ class VideosController < ApplicationController
   end
 
   def front
+
   end
 
   
