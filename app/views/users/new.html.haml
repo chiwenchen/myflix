@@ -9,15 +9,15 @@
             .form-group
               .control-label.col-sm-2= f.label :email, 'Email Address'
               .col-sm-6
-                = f.email_field :email, hide_label: true
+                = f.email_field :email, hide_label: true, icon: 'envelope'
             .form-group
               .control-label.col-sm-2= f.label :password, 'Password'
               .col-sm-6
-                = f.password_field :password, hide_label: true
+                = f.password_field :password, hide_label: true, icon: 'lock'
             .form-group
               .control-label.col-sm-2= f.label :name, 'Full Name'
               .col-sm-6
-                = f.text_field :name, hide_label: true
+                = f.text_field :name, hide_label: true, icon: 'user'
             .col-sm-offset-2.controls
               = f.submit 'Sign Up', class: 'btn btn-default'        
         / %fieldset.credit_card

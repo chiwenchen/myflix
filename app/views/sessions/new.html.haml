@@ -9,11 +9,11 @@
             .form-group
               .control-label.col-sm-2= label_tag :email, 'Email Address'
               .col-sm-4
-                = email_field_tag :email, params[:email] || "", class: 'form-control', hide_label: true
+                = email_field_tag :email, params[:email] || "", class: 'form-control', hide_label: true, icon: "envelope"
             .form-group
               .control-label.col-sm-2= label_tag :password, 'Password'
               .col-sm-4
-                = password_field_tag :password, params[:password] || "", class: 'form-control', hide_label: true
+                = password_field_tag :password, params[:password] || "", class: 'form-control', hide_label: true, icon: 'lock'
             .form-group.action
               .col-sm-offset-1
                 = f.submit 'Sign in', class: 'btn btn-default'
