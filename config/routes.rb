@@ -14,9 +14,10 @@ Myflix::Application.routes.draw do
 
   
   resources :videos, only: [:index, :show] do
-    collection do
+    collection do 
       get :search;
-      get :front
+      get :front;
+      get :my_queue;
     end
     member do
       get :video 

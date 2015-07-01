@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(strong_params)
     @video = Video.find(params[:video_id])
+    @review.video = @video
+    binding.pry
     if @review.save
       flash[:success] = 'you leave a review in this movie'
       redirect_to video_path(@video)
