@@ -11,6 +11,7 @@ Myflix::Application.routes.draw do
 
   resources :users, only: [:create]
 
+
   
   resources :videos, only: [:index, :show] do
     collection do
@@ -20,6 +21,7 @@ Myflix::Application.routes.draw do
     member do
       get :video 
     end
+    resources :reviews, only: [:create]
   end
   
   get '/home', to: 'videos#home'
