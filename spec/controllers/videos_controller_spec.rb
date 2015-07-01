@@ -13,6 +13,13 @@ describe VideosController do
         expect(assigns(:video)).to eq(video) 
         # the :video inside "assigns" is the instance variable @video created by the show action
       end
+      it "sets @reviews for the video" do 
+        video = Fabricate(:video)
+        review1 = Fabricate(:review, video_id: video.id) #if I use video: video here, it will fail
+        review2 = Fabricate(:review, video_id: video.id)
+        get :show, id: video.id
+        expect(assigns(:reviews)).to match_array([review1, review2])
+      end
       #Here we do not need to test the render function, because it's part of rails convention
     end
     describe "GET search" do 
@@ -21,7 +28,7 @@ describe VideosController do
         session[:user_id] = Fabricate(:user).id 
         video = Fabricate(:video, title: 'Toy Story') # here we can overwrite the title
         get :search, search_term: 'Story'
-        expect(assigns(:result)).to eq([vdideo])
+        expect(assigns(:result)).to eq([video])
       end
     end
   end

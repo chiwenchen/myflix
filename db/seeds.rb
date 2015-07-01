@@ -11,7 +11,7 @@ thriller = Category.create(title: 'Thriller')
 comedy = Category.create(title: 'Comedy')
 action = Category.create(title: 'Action')
 
-Video.create(title: 'Inception', 
+inception = Video.create(title: 'Inception', 
             description: 'Very cool movie',
             small_cover_url: '/tmp/inception_small.jpg',
             large_cover_url: '/tmp/inception_large.jpg',
@@ -21,34 +21,6 @@ Video.create(title: 'Interstellar',
             small_cover_url: '/tmp/interstellar_small.jpg', 
             large_cover_url: '/tmp/interstellar_large.jpg', 
             category: science)
-Video.create(title: 'Interstellar', 
-            description: 'Very cool movie', 
-            small_cover_url: '/tmp/interstellar_small.jpg', 
-            large_cover_url: '/tmp/interstellar_large.jpg', 
-            category: science)
-Video.create(title: 'Interstellar', 
-            description: 'Very cool movie', 
-            small_cover_url: '/tmp/interstellar_small.jpg', 
-            large_cover_url: '/tmp/interstellar_large.jpg', 
-            category: science)
-Video.create(title: 'Interstellar', 
-            description: 'Very cool movie', 
-            small_cover_url: '/tmp/interstellar_small.jpg', 
-            large_cover_url: '/tmp/interstellar_large.jpg', 
-            category: science)
-Video.create(title: 'Interstellar', 
-            description: 'Very cool movie', 
-            small_cover_url: '/tmp/interstellar_small.jpg', 
-            large_cover_url: '/tmp/interstellar_large.jpg', 
-            category: science)
-Video.create(title: 'Interstellar', 
-            description: 'Very cool movie', 
-            small_cover_url: '/tmp/insidious_small.jpg', 
-            large_cover_url: '/tmp/interstellar_large.jpg', 
-            category: science,
-            created_at: 1.day.ago)
-
-
 Video.create(title: 'Mission Impossible 3', 
             description: 'Very cool movie', 
             small_cover_url: '/tmp/MI3_small.jpg',
@@ -64,6 +36,15 @@ Video.create(title: 'Monk',
             small_cover_url: '/tmp/monk_small.jpg', 
             large_cover_url: '/tmp/monk_large.jpg', 
             category: comedy)
+chiwen = Fabricate(:user, name: 'Chiwen')
+review1 = Review.create(rating: 5,
+                        body: 'this is the best movie I have ever seen',
+                        video: inception,
+                        user: chiwen)
+review2 = Review.create(rating: 1,
+                        body: 'I do not want to see this anymore',
+                        video: inception,
+                        user: chiwen)
 
 
 
