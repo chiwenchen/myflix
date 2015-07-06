@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(strong_params)
     @video = Video.find(params[:video_id])
     @review.video = @video
-    binding.pry
+    @review.user = current_user
     if @review.save
       flash[:success] = 'you leave a review in this movie'
       redirect_to video_path(@video)
@@ -16,6 +16,6 @@ class ReviewsController < ApplicationController
   end
 
   def strong_params
-    (params.require(:review).permit(:rating, :body, :video_id, :user_id))
+    (params.require(:review).permit(:rating, :body))
   end
 end

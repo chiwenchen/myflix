@@ -22,10 +22,6 @@ class VideosController < ApplicationController
 
   def front; end
 
-  def my_queue 
-
-  end
-
   
 
 end

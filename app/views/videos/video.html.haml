@@ -10,7 +10,7 @@
         %p #{@video.description}
         .actions
           %a.btn.btn-primary(href="") Watch Now
-          %a.btn.btn-default(href="") + My Queue
+          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: 'post', class: 'btn btn-default'
 
 %section.reviews.container
   .row
@@ -20,13 +20,14 @@
           .form-group
             .row
               .col-sm-3
-                = f.select :rating, [["1 Star", 1], ["2 Stars", 2], ["3 Stars", 3], ["4 Stars", 4], ["5 Stars", 5]], {label: "Rate this video"}
+                = f.select :rating, (1..5).to_a.map{|number| pluralize(number, "Star", "Stars") }, {label: "Rate this video"}
           .form-group
             .row
               .col-sm-8
                 = f.text_area :body, placeholder: 'Leave a review here', label: 'Write Review', rows: '6'
           .form-group
-            = f.text_field :user_id, value: current_user.id, type: 'hidden', hide_label: true
+            / = f.text_field :user_id, value: current_user.id, type: 'hidden', hide_label: true
+            / This is a bad idea, because this will expose the field to malicious user, allow then to manipulate the 'current_user' even it's ostensibly hidden 
         %fieldset.form-group.actions.clearfix
           %input(type="submit" value="Submit" class="btn")
           %a(href="") Cancel
@@ -41,4 +42,4 @@
                 %span Rating: #{review.rating} / 5
                 %p by #{review.user.name}
               .col-sm-8
-                %p #{review.body}
+                %p= review.body

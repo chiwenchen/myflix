@@ -10,26 +10,18 @@ Myflix::Application.routes.draw do
   get '/signout', to: 'sessions#destroy'
 
   resources :users, only: [:create]
-
-
-  
+  resources :queue_items, only: [:index, :create, :destroy]
+ 
   resources :videos, only: [:index, :show] do
     collection do 
       get :search;
       get :front;
-      get :my_queue;
-    end
-    member do
-      get :video 
     end
     resources :reviews, only: [:create]
   end
   
   get '/home', to: 'videos#home'
   get ':controller(/:action)' # non-resourceful routes 
-
-
-
 
   #get 'videos/(:action)', controller: 'videos'
 end
