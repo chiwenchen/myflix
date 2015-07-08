@@ -1,5 +1,7 @@
 class Video < ActiveRecord::Base
   belongs_to :category
+  has_many :queue_items
+  has_many :reviews, -> { order 'created_at DESC' }
   validates :title, presence: :true
   validates :description, presence: :true
 
@@ -7,6 +9,6 @@ class Video < ActiveRecord::Base
     #self.where(title: title.to_s)
     return [] if search_term.blank?
     self.where("title LIKE ?", "%#{search_term}%")
-    #find(:all, :conditions => ['title LIKE ?', "%#{search_term}%"]) This not working
+    #find(:all, :conditions => ['title LIKE ?', "%#{search_term}%"]) This is not working
   end
 end
