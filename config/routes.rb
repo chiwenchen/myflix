@@ -12,7 +12,7 @@ Myflix::Application.routes.draw do
   resources :users, only: [:create]
   resources :queue_items, only: [:index, :create, :destroy] do 
     collection do 
-      get :update_position;
+      post :update_position;
     end
   end
  
