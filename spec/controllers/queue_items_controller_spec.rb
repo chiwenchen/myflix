@@ -192,6 +192,21 @@ describe QueueItemsController do
         expect(response).to redirect_to queue_items_path
       end
     end
+
+    context 'update rating' do 
+      let(:sammy){Fabricate(:user)}
+      let(:inception){Fabricate(:video)}
+      let(:item1){Fabricate(:queue_item, user: sammy, video: inception, position: 1, rating: 3)}
+      before do 
+        session[:user_id] = sammy.id
+      end
+      it 'clean the rating if the review is present' do 
+        post 'update_position', queue_item: [{id: item1.id, position: 2, rating: 2}]
+        expect(item1.reload.rating).to eq(2)
+      end
+      it 'change the rating if the review is present'
+      it 'create a new review if the review is not present'
+    end
   end
 end
 

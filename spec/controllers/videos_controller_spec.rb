@@ -15,8 +15,8 @@ describe VideosController do
       end
       it "sets @reviews for the video" do 
         video = Fabricate(:video)
-        review1 = Fabricate(:review, video_id: video.id) #if I use video: video here, it will fail
-        review2 = Fabricate(:review, video_id: video.id)
+        review1 = Fabricate(:review, video: video) #if I use video: video here, it will fail
+        review2 = Fabricate(:review, video: video)
         get :show, id: video.id
         expect(assigns(:reviews)).to match_array([review1, review2])
       end
