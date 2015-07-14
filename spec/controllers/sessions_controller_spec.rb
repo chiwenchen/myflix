@@ -8,7 +8,7 @@ describe SessionsController do
     end
 
     it 'redirect_to home_path if logged in' do 
-      session[:user_id] = Fabricate(:user).id
+      set_current_user
       get 'new'
       expect(response).to redirect_to home_path
     end
@@ -58,8 +58,8 @@ describe SessionsController do
   end
 
   describe 'GET destroy' do 
-    before do 
-      session[:user_id] = Fabricate(:user).id
+    before do  
+      set_current_user
       get 'destroy'
     end
 

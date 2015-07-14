@@ -3,9 +3,8 @@ require 'spec_helper'
 describe ReviewsController do 
   describe "POST create" do 
     context 'user is authenticated' do 
-      let(:kim) {Fabricate(:user)}
       before do 
-        session[:user_id] = kim.id
+        set_current_user
       end
       context 'review is valid' do   
         let(:review) {Fabricate.attributes_for(:review)}

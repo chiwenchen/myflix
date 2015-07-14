@@ -13,9 +13,13 @@ class QueueItem < ActiveRecord::Base
   end
 
   def rating= (new_rating)
-    binding.pry
     review = Review.find_by(user_id: user.id, video_id: video.id)
-    review.update(rating: new_rating) if review 
+    if review == nil
+      review = Review.new(user_id: user.id, video_id: video.id, rating: new_rating)
+    else
+      review.update(rating: new_rating)
+    end
+    review.save(:validate => false)
   end
 
   def category_title
