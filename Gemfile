@@ -14,6 +14,7 @@ gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'fabrication'
 gem 'faker'
 gem 'capybara'
+gem 'launchy'
 
 group :development do
   gem 'thin'

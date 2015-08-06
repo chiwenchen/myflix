@@ -10,3 +10,16 @@ end
 def clear_current_user
   session[:user_id] = nil
 end
+
+def sign_in(user = nil)
+  #we can use feature spec syntax in macros
+  user ||= Fabricate(:user)
+  visit signin_path
+  fill_in 'Email Address', with: user.email
+  fill_in 'Password', with: user.password
+  click_button 'Sign in'
+end
+
+def new_video(title)
+  Fabricate(:video, title: title)
+end

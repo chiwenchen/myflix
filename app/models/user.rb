@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   # validates_confirmation_of :name
   validates_uniqueness_of :name, :email
 
+  def queued_video(video)
+    queue_items.map(&:video).include? video
+  end
 end
