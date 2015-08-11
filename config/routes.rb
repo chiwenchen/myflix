@@ -10,11 +10,14 @@ Myflix::Application.routes.draw do
   get '/signout', to: 'sessions#destroy'
 
   resources :users, only: [:create, :show]
+
   resources :queue_items, only: [:index, :create, :destroy] do 
     collection do 
       post :update_position;
     end
   end
+
+  get :people, to: 'relationships#index'
  
   resources :videos, only: [:index, :show] do
     collection do 

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_user, only: [:people]
+
   def new
     if logged_in?
       redirect_to home_path
@@ -23,4 +25,6 @@ class UsersController < ApplicationController
   def strong_params
     (params.require(:user).permit(:name, :password, :email))
   end
+
+
 end
