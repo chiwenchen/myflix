@@ -1,5 +1,4 @@
 Myflix::Application.routes.draw do
-
   root to: 'videos#front'
 
   resources :categories, only: :show
@@ -10,6 +9,7 @@ Myflix::Application.routes.draw do
   get '/signout', to: 'sessions#destroy'
 
   resources :users, only: [:create, :show]
+  resources :relationships, only: [:create, :destroy]
 
   resources :queue_items, only: [:index, :create, :destroy] do 
     collection do 

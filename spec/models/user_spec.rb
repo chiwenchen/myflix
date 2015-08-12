@@ -14,4 +14,19 @@ describe User do
       sammy.queued_video(inception).should be false
     end
   end
+
+  describe '#followed?' do 
+    it 'returns true if user has followed another user' do 
+      sammy = Fabricate(:user)
+      bob = Fabricate(:user)
+      Relationship.create(leader: bob, follower: sammy)
+      expect(sammy.followed?(bob)).to be_true
+    end
+    it 'returns false if user does not followed another user' do 
+      sammy = Fabricate(:user)
+      bob = Fabricate(:user)
+      Relationship.create(leader: sammy, follower: bob)
+      expect(sammy.followed?(bob)).to be_false
+    end
+  end
 end
