@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(strong_params)
     if @user.save
+      AppMailer.send_welcome_message(@user).deliver
       flash[:success] = 'You are successful Registed and Signed in'
       session[:user_id] = @user.id
       redirect_to home_path

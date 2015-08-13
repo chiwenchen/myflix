@@ -36,12 +36,12 @@ Video.create(title: 'Monk',
             small_cover_url: '/tmp/monk_small.jpg', 
             large_cover_url: '/tmp/monk_large.jpg', 
             category: comedy)
-chiwen = Fabricate(:user, name: 'Chiwen', password: 'password', email: 'cwchen2000@gmail.com')
-review1 = Review.create(rating: 5,
+User.create(name: 'Chiwen', password: 'password', email: 'cwchen2000@gmail.com')
+Review.create(rating: 5,
                         body: 'this is the best movie I have ever seen',
                         video: inception,
                         user: chiwen)
-review2 = Review.create(rating: 1,
+Review.create(rating: 1,
                         body: 'I do not want to see this anymore',
                         video: inception,
                         user: chiwen)
