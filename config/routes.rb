@@ -7,7 +7,8 @@ Myflix::Application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/signout', to: 'sessions#destroy'
-
+  get 'forget_password', to: 'forget_password#new'
+  resource :forget_password, only: [:create]
   resources :users, only: [:create, :show]
   resources :relationships, only: [:create, :destroy]
 

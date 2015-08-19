@@ -18,4 +18,5 @@ class ReviewsController < ApplicationController
   def strong_params
     (params.require(:review).permit(:rating, :body))
   end
+  
 end
