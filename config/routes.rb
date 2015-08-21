@@ -8,7 +8,10 @@ Myflix::Application.routes.draw do
   post '/signin', to: 'sessions#create'
   get '/signout', to: 'sessions#destroy'
   get 'forget_password', to: 'forget_password#new'
-  resource :forget_password, only: [:create]
+  get 'confirm_reset_password', to: 'forget_password#confirm' 
+  get 'reset_password_page', to: 'forget_password#reset_password_page'
+  post 'reset_password', to: 'forget_password#reset_password'
+  resources :forget_password, only: [:create]
   resources :users, only: [:create, :show]
   resources :relationships, only: [:create, :destroy]
 

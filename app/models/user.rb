@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   #validates_length_of [:name, :password], in: 4..20
   # validates_confirmation_of :name
   validates_uniqueness_of :name, :email
+  validates :password, length: { within: 6..20 }
 
   def queued_video(video)
     queue_items.map(&:video).include? video
@@ -19,5 +20,10 @@ class User < ActiveRecord::Base
 
   def can_follow?(another_user)
     !(followed?(another_user) || self == another_user)
+  end
+
+  def reset_password(new_password)
+    self.password = new_password
+    save
   end
 end
