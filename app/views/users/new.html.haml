@@ -18,9 +18,11 @@
               .control-label.col-sm-2= f.label :name, 'Full Name'
               .col-sm-6
                 = f.text_field :name, hide_label: true, icon: 'user'
+            - if @invitation
+              = hidden_field_tag :invitation_token, @invitation.token
             .col-sm-offset-2.controls
               = f.submit 'Sign Up', class: 'btn btn-default'        
-        / %fieldset.credit_card
+        / %fieldset.credit_car
         /   .form-group
         /     %label.control-label.col-sm-2 Credit Card Number
         /     .col-sm-6

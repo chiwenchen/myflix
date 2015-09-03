@@ -1,0 +1,7 @@
+!!! 5
+%html(lang="en-US") 
+  %body 
+    %p Hi, #{@invitation.invitee_name}, you are invited by #{@invitation.inviter.name} to join Myflix.
+    %p #{@invitation.message}
+    =link_to "Accept the invitation and register an account", register_with_token_url(invitation: @invitation.param)
+    

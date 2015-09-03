@@ -8,6 +8,26 @@ describe UsersController do
     end
   end
 
+  describe "GET new_with_invitation" do 
+    it "sets the user with passing in invitee email" do 
+      @invitation = Fabricate(:invitation)
+      get :new_with_invitation, invitation: @invitation.token
+      expect(assigns(:user).email).to eq(@invitation.invitee_email)
+    end
+    it "render the new template" do 
+      @invitation = Fabricate(:invitation)
+      get :new_with_invitation, invitation: @invitation.token
+      expect(response).to render_template :new
+    end
+    it "logged in if current_user is exist" do 
+      set_current_user
+      @invitation = Fabricate(:invitation)
+      get :new_with_invitation, invitation: @invitation.token
+      expect(response).to redirect_to home_path
+    end
+
+  end
+
   describe "POST create" do 
     context '@user is authenticated' do
       it 'saves @user' do 
@@ -18,6 +38,22 @@ describe UsersController do
       it 'redirect_to home_path' do 
         post :create, user: Fabricate.attributes_for(:user)
         expect(response).to redirect_to home_path
+      end
+
+      it "sets the invitation if have invitation" do 
+        @invitation = Fabricate(:invitation)
+        post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
+        expect(assigns(:invitation)).to be_present
+      end
+      it "makes the new user follow the inviter" do 
+        @invitation = Fabricate(:invitation)
+        post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
+        expect(assigns(:user).followed?(User.find(@invitation.inviter_id))).to be_true
+      end
+      it "makes the inviter follow the new user" do 
+        @invitation = Fabricate(:invitation)
+        post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
+        expect(User.find(@invitation.inviter_id).followed?(assigns(:user))).to be_true
       end
     end
 

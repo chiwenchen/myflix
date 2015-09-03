@@ -29,4 +29,13 @@ describe User do
       expect(sammy.followed?(bob)).to be_false
     end
   end
+
+  describe '#follow' do 
+    it "let the user follow another user" do 
+      sammy = Fabricate(:user)
+      bob = Fabricate(:user)
+      sammy.follow(bob)
+      expect(sammy.followed?(bob)).to be_true
+    end
+  end
 end
