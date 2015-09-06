@@ -40,7 +40,7 @@ describe UsersController do
         expect(response).to redirect_to home_path
       end
 
-      it "sets the invitation if have invitation" do 
+      it "sets the @invitation if have invitation" do 
         @invitation = Fabricate(:invitation)
         post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
         expect(assigns(:invitation)).to be_present

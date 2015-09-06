@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Tokenable
   has_many :reviews
   has_many :queue_items, -> {order(:position)}
   has_many :following_relationships, class_name: 'Relationship', foreign_key: :follower_id #I am the follower
@@ -9,6 +10,10 @@ class User < ActiveRecord::Base
   # validates_confirmation_of :name
   validates_uniqueness_of :name, :email
   validates :password, length: { within: 6..20 }
+
+  def generate_token
+    self.update_attribute(:token, SecureRandom.urlsafe_base64)
+  end
 
   def queued_video(video)
     queue_items.map(&:video).include? video

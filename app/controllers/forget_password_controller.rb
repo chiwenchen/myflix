@@ -3,7 +3,7 @@ class ForgetPasswordController < ApplicationController
   def create
     user = User.where(email: params[:email]).first
     if user
-      user.update_attribute(:token, SecureRandom.urlsafe_base64)
+      user.generate_token
       AppMailer.send_reset_password(user).deliver
       redirect_to confirm_reset_password_path
     else

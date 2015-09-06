@@ -15,6 +15,7 @@ gem 'fabrication'
 gem 'faker'
 gem 'capybara'
 gem 'launchy'
+gem 'sidekiq'
 
 group :development do
   gem 'thin'

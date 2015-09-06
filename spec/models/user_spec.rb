@@ -38,4 +38,8 @@ describe User do
       expect(sammy.followed?(bob)).to be_true
     end
   end
+
+  it_behaves_like 'generates_token' do 
+      let(:object){Fabricate(:user)}
+    end
 end
