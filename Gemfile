@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.7'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails'
@@ -16,6 +16,7 @@ gem 'faker'
 gem 'capybara'
 gem 'launchy'
 gem 'sidekiq'
+gem 'mailgun-ruby'
 
 group :development do
   gem 'thin'

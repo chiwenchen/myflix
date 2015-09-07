@@ -13,3 +13,9 @@ test:
   pool: 5
   #username: YOUR_USERNAME
   #password: YOUR_PASSWORD
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: myflix_production
+  pool: 5
