@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!
 
 describe UsersController do 
   describe "GET new" do 

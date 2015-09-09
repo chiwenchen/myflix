@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!
 
 describe InvitationsController do 
   describe "post Create" do 
@@ -35,6 +37,9 @@ describe InvitationsController do
         set_current_user
         post :create, invitation: {invitee_email: 'chiwen@example.com', message: 'join MyFlix!!'}
       end
+      
+      after {ActionMailer::Base.deliveries.clear}
+
       it "does not save the invitation" do 
         expect(Invitation.count).to eq(0)
       end

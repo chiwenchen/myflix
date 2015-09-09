@@ -36,7 +36,7 @@ Video.create(title: 'Monk',
             small_cover_url: '/tmp/monk_small.jpg', 
             large_cover_url: '/tmp/monk_large.jpg', 
             category: comedy)
-User.create(name: 'Chiwen', password: 'password', email: 'cwchen2000@gmail.com')
+chiwen = User.create(name: 'Chiwen', password: 'password', email: 'cwchen2000@gmail.com')
 Review.create(rating: 5,
                         body: 'this is the best movie I have ever seen',
                         video: inception,

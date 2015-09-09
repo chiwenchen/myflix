@@ -10,6 +10,7 @@ Myflix::Application.configure do
   config.assets.compress = true
   config.assets.js_compressor = :uglifier
 
+<<<<<<< HEAD
   ActionMailer::Base.smtp_settings = {
   :port           => ENV['MAILGUN_SMTP_PORT'],
   :address        => ENV['MAILGUN_SMTP_SERVER'],
@@ -19,6 +20,17 @@ Myflix::Application.configure do
   :authentication => :plain,
 }
   ActionMailer::Base.delivery_method = :smtp
+=======
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'myflix.heroku.com',
+  :authentication => :plain
+   }
+>>>>>>> sidekiq
 
   config.assets.compile = false
 
