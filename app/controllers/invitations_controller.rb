@@ -9,7 +9,6 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new(strong_params.merge!(inviter_id: current_user.id))
     if @invitation.save
       @invitation.generate_token
-      #AppMailer.delay.send_invitation_letter(@invitation)
       HardWorker.perform_async(@invitation.id)
       flash[:success] = "You have sent out a invitation to #{@invitation.invitee_name}"
       redirect_to home_path

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         @user.follow(inviter)
         inviter.follow(@user)
       end
-      AppMailer.send_welcome_message(@user).deliver
+      AppMailer.delay.send_welcome_message(@user)
       flash[:success] = 'You are successful Registed and Signed in'
       session[:user_id] = @user.id
       redirect_to home_path
