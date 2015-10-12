@@ -1,3 +1,2 @@
-web: bundle exec thin start -R config.ru -e $RAILS_ENV -p $PORT
-worker:  bundle exec rake jobs:work
-sidekiq: bundle exec sidekiq -c 5 -v
+web: bundle exec rails server -p $PORT
+worker: bundle exec sidekiq
