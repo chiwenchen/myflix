@@ -13,12 +13,13 @@ Myflix::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   config.action_mailer.delivery_method = :smtp
+  #use heroku var
   config.action_mailer.smtp_settings = {
   :port           => ENV['MAILGUN_SMTP_PORT'],
   :address        => ENV['MAILGUN_SMTP_SERVER'],
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => ENV['MAILGUN_DOMAIN'],
+  :domain         => ENV['MAILGUN_DOMAIN'], 
   :authentication => :plain
    }
 
