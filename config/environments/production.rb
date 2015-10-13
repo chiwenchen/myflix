@@ -14,7 +14,7 @@ Myflix::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   #use heroku var
-  config.action_mailer.smtp_settings = {
+  ActionMailer::Base.smtp_settings = {
   :port           => ENV['MAILGUN_SMTP_PORT'],
   :address        => ENV['MAILGUN_SMTP_SERVER'],
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
