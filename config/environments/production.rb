@@ -22,7 +22,7 @@ Myflix::Application.configure do
   :domain         => ENV['MAILGUN_DOMAIN'], 
   :authentication => :plain
    }
-  config.action_mailer.default_url_options = {:host => "postmaster@app3639a4487ff94bb1bac1b9af5631c5d2.mailgun.org"}
+  config.action_mailer.default_url_options = {:host => "http://serene-springs-6686.herokuapp.com"}
 
   config.assets.compile = false
 
