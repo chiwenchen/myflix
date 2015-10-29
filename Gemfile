@@ -17,6 +17,7 @@ gem 'capybara'
 gem 'launchy'
 gem 'sidekiq'
 gem 'mailgun-ruby'
+gem "sentry-raven"
 
 group :development do
   gem 'thin'
