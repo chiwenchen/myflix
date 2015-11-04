@@ -1,0 +1,19 @@
+machine:
+  ruby:
+    version: 2.1.7
+deployment:
+  production:
+    branch: production
+    commands:
+      - heroku maintenance:on --app chiwen-myflix
+      - heroku pg:backups capture --app chiwen-myflix
+      - git push git@heroku.com:chiwen-myflix.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app chiwen-myflix
+      - heroku maintenance:off --app chiwen-myflix
+  staging:
+    branch: staging
+    commands:
+      - heroku maintenance:on --app staging-myflix-chiwen
+      - git push git@heroku.com:staging-myflix-chiwen.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app staging-myflix-chiwen
+      - heroku maintenance:off --app staging-myflix-chiwen
