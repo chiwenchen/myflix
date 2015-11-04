@@ -13,7 +13,7 @@ deployment:
   staging:
     branch: staging
     commands:
-      - heroku maintenance:on --app staging-chiwen-myflix
-      - git push git@heroku.com:staging-chiwen-myflix.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app staging-chiwen-myflix
-      - heroku maintenance:off --app staging-chiwen-myflix
+      - heroku maintenance:on --app staging-myflix-chiwen
+      - git push git@heroku.com:staging-myflix-chiwen.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app staging-myflix-chiwen
+      - heroku maintenance:off --app staging-myflix-chiwen
