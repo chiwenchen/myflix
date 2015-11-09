@@ -19,6 +19,7 @@ class QueueItemsController < ApplicationController
 
   def update_position    
     begin
+    #update_positions
     update_positions
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:danger] = invalid.record.errors.full_messages.pop
