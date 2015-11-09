@@ -19,7 +19,12 @@ class QueueItemsController < ApplicationController
 
   def update_queue_item
     begin
+<<<<<<< HEAD
     update_positions_and_rating
+=======
+    #update_positions
+    update_positions
+>>>>>>> change_position
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:danger] = invalid.record.errors.full_messages.pop
       redirect_to queue_items_path
