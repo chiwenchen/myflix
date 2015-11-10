@@ -17,9 +17,9 @@ class QueueItemsController < ApplicationController
     redirect_to queue_items_path
   end
 
-  def update_position    
+  def update_position
     begin
-    update_positions
+    update_positions_and_rating
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:danger] = invalid.record.errors.full_messages.pop
       redirect_to queue_items_path
@@ -50,11 +50,11 @@ class QueueItemsController < ApplicationController
     end
   end
 
-  def update_positions
+  def update_positions_and_rating
     ActiveRecord::Base.transaction do  
       params[:queue_item].each do |item|
         item_obj = QueueItem.find(item['id'])
-        item_obj.update_attributes!(:position => item['position']) if item_obj.user == current_user
+        item_obj.update_attributes!(:position => item['position'], :rating => item['rating']) if item_obj.user == current_user
       end
     end
   end

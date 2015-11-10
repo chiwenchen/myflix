@@ -116,23 +116,23 @@ describe QueueItemsController do
       end
 
       it 'update the position' do   
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
         expect(item1.reload.position).to eq(2)
         expect(sammy.queue_items.map(&:position)).to eq([1,2])
       end
 
       it 'order the items by position' do 
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
         expect(sammy.queue_items).to eq([item2.reload, item1.reload])
       end
 
       it 'redirect to queue_items_path' do 
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
         expect(response).to redirect_to queue_items_path
       end
 
       it 'normalize the position' do 
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 3}, {id: item2.id, position: 2}]
+        post 'update_position', queue_item: [{id: item1.id, position: 3}, {id: item2.id, position: 2}]
         expect(sammy.queue_items.map(&:position)).to eq([1,2])
       end
     end
@@ -145,17 +145,17 @@ describe QueueItemsController do
       end
 
       it 'do not update the position' do 
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 3.4}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 3.4}, {id: item2.id, position: 1}]
         expect(sammy.queue_items).to eq([item1, item2])
       end
 
       it 'raise an flash' do 
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 3.4}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 3.4}, {id: item2.id, position: 1}]
         expect(flash[:danger]).to be_present
       end
 
       it 'redirect to queue_items_path' do
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 3.4}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 3.4}, {id: item2.id, position: 1}]
         expect(response).to redirect_to queue_items_path
       end
 
@@ -167,7 +167,7 @@ describe QueueItemsController do
       end
 
       it_behaves_like 'require_sign_in' do 
-        let(:action){post 'update_queue_item'}
+        let(:action){post 'update_position'}
       end
       
     end
@@ -181,11 +181,11 @@ describe QueueItemsController do
         session[:user_id] = hacker.id
       end
       it 'do not update the position' do
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
         expect(item1.reload.position).to eq(1)
       end
       it 'redirect_to queue_items_path' do 
-        post 'update_queue_item', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
+        post 'update_position', queue_item: [{id: item1.id, position: 2}, {id: item2.id, position: 1}]
         expect(response).to redirect_to queue_items_path
       end
     end
