@@ -31,4 +31,6 @@ Myflix::Application.configure do
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
+
+  ENV["DATABASE_URL"] = "postgres://ptfhpnimrcglko:FZfNAfF0rx3EMqG47x7MpZX0r7@ec2-54-225-197-30.compute-1.amazonaws.com:5432/dbg33rnntmee5h"
 end
