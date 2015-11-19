@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-describe VideosController do 
+describe VideosController do
+
   context 'required authenticated user' do
     before do 
       set_current_user
@@ -23,8 +24,8 @@ describe VideosController do
         expect(assigns(:reviews)).to match_array([review1, review2])
       end
     end
-    describe "GET search" do 
 
+    describe "GET search" do 
       it "set @result if user is authenticated" do
         video = Fabricate(:video, title: 'Toy Story')
         get :search, search_term: 'Story'
@@ -32,10 +33,11 @@ describe VideosController do
       end
     end
   end
+
   describe "GET show" do 
-    video = Fabricate(:video)
+    #video = Fabricate(:video)    can't put Fabricate outside of test sample, because it will really generate the new record in database
     it_behaves_like 'require_sign_in' do 
-      let(:action){get :show, id: video.id}
+      let(:action){get :show, id: Fabricate(:video).id}
     end
   end
 end

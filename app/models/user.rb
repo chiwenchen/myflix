@@ -35,4 +35,5 @@ class User < ActiveRecord::Base
     self.password = new_password
     save
   end
+
 end
