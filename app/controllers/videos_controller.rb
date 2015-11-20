@@ -13,7 +13,10 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @reviews = @video.reviews
-    render 'video'
+    respond_to do |format|
+      format.html {render 'video'}
+      format.js
+    end
   end
 
   def search

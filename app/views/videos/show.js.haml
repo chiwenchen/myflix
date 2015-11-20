@@ -1,0 +1,2 @@
+// $("#video_no#{@video.id}").html('<iframe width="665" height="375" src="https://www.youtube.com/embed/8hP9D6kZseM?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+$("#video_no#{@video.id}").html('#{@video.video_url.html_safe}')
