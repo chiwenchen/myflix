@@ -25,6 +25,15 @@ def sign_in(user = nil)
   click_button 'Sign in'
 end
 
+def sign_in_admin(admin = nil)
+  #we can use feature spec syntax in macros
+  admin ||= Fabricate(:admin)
+  visit signin_path
+  fill_in 'Email Address', with: admin.email
+  fill_in 'Password', with: admin.password
+  click_button 'Sign in'
+end
+
 def new_video(title)
   Fabricate(:video, title: title)
 end

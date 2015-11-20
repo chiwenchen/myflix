@@ -9,21 +9,21 @@ describe Video do #'describe' is the syntax for test, and the Video is the model
 
   describe '#search_by_tile' do 
     it 'returns empty array if there is no match' do 
-      Video.create(title: 'interstella', description: 'a science fiction movie')
+      Fabricate(:video, title: 'interstella')
       expect(Video.search_by_title("family")).to eq([])
     end
     it 'returns an array of one video if there is a complete match' do 
-      happy_foot = Video.create(title: 'Happy foot', description: 'a science fiction movie')
+      happy_foot = Fabricate(:video, title: 'Happy foot')
       expect(Video.search_by_title('Happy foot')).to eq([happy_foot])
     end
     it 'returns an array of one video if there is a partial match' do 
-      love_world = Video.create(title: 'love world', description: 'a romantic movie')
+      love_world = Fabricate(:video, title: 'love world')
       expect(Video.search_by_title('love')).to eq([love_world])
     end
     it 'returns an array of videos if there is multiple matchs' do 
-      love_world = Video.create(title: 'love world', description: 'a romantic movie')
-      love_story = Video.create(title: 'love story', description: 'a romantic movie')
-      expect(Video.search_by_title('love')).to eq([love_world, love_story])
+      love_story = Fabricate(:video, title: 'love story')
+      love_world = Fabricate(:video, title: 'love world')
+      expect(Video.search_by_title('love')).to eq([love_story, love_world])
     end
     it 'returns empty array if search term is a empty string' do 
       expect(Video.search_by_title('')).to eq([])
@@ -33,19 +33,19 @@ describe Video do #'describe' is the syntax for test, and the Video is the model
   describe '#recent_videos' do 
     it 'returns all videos if there is less than 6 videos' do
       action = Category.create(title: 'Action')
-      movie_1 = Video.create(title: 'movie 1', description: 'the old movie', category: action, created_at: 1.day.ago)
-      movie_2 = Video.create(title: 'movie 2', description: 'the new movie', category: action)
-      expect(action.recent_videos).to eq([movie_2, movie_1])
+      old_movie = Fabricate(:video, category: action, created_at: 1.day.ago)
+      new_movie = Fabricate(:video, category: action)
+      expect(action.recent_videos).to eq([new_movie, old_movie])
     end
     it 'returns the first 6 videos if there is more than 6 videos in the category' do 
       action = Category.create(title: 'Action') 
-      movie_1 = Video.create(title: 'movie 1', description: 'the old movie', category: action)
-      movie_2 = Video.create(title: 'movie 2', description: 'the old movie', category: action)
-      movie_3 = Video.create(title: 'movie 3', description: 'the old movie', category: action)
-      movie_4 = Video.create(title: 'movie 4', description: 'the old movie', category: action)
-      movie_5 = Video.create(title: 'movie 5', description: 'the old movie', category: action)
-      movie_6 = Video.create(title: 'movie 6', description: 'the old movie', category: action)
-      movie_7 = Video.create(title: 'movie 7', description: 'the old movie', category: action)
+      movie_1 = Fabricate(:video, category: action)
+      movie_2 = Fabricate(:video, category: action)
+      movie_3 = Fabricate(:video, category: action)
+      movie_4 = Fabricate(:video, category: action)
+      movie_5 = Fabricate(:video, category: action)
+      movie_6 = Fabricate(:video, category: action)
+      movie_7 = Fabricate(:video, category: action)
       expect(action.recent_videos).to eq([movie_7, movie_6, movie_5, movie_4, movie_3, movie_2])     
     end
   end
