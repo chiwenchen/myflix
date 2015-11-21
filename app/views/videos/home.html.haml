@@ -8,7 +8,7 @@
       - category.recent_videos.each do |video|
         .video.col-sm-2
           = link_to video do 
-            / video is shorthnd for video_path(video) 
-            = image_tag video.small_cover_url
+            / video is shorthand for video_path(video) 
+            = image_tag video.thumb_image
   %hr
 

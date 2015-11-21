@@ -17,7 +17,8 @@ gem 'capybara'
 gem 'launchy'
 gem 'sidekiq'
 gem 'mailgun-ruby'
-gem "sentry-raven"
+gem 'sentry-raven'
+gem 'carrierwave'
 
 group :development do
   gem 'thin'
@@ -41,5 +42,6 @@ end
 group :production, :staging do
   gem 'rails_12factor'
   gem 'redis'
+  gem 'carrierwave-aws'
 end
 
