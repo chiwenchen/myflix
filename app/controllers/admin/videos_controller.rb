@@ -18,5 +18,5 @@ end
 private
 
 def strong_params
-  (params.require(:video).permit(:title, :description, :category_id, :image, :thumb_image, :video_url))
+  params.require(:video).permit(:title, :description, :category_id, :image, :thumb_image, :video_url)
 end

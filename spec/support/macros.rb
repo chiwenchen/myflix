@@ -17,7 +17,6 @@ def clear_current_user
 end
 
 def sign_in(user = nil)
-  #we can use feature spec syntax in macros
   user ||= Fabricate(:user)
   visit signin_path
   fill_in 'Email Address', with: user.email
@@ -26,7 +25,6 @@ def sign_in(user = nil)
 end
 
 def sign_in_admin(admin = nil)
-  #we can use feature spec syntax in macros
   admin ||= Fabricate(:admin)
   visit signin_path
   fill_in 'Email Address', with: admin.email
