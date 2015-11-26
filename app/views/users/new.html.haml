@@ -19,9 +19,9 @@
               .col-sm-6
                 = f.text_field :name, hide_label: true, icon: 'user'
             - if @invitation
-              = hidden_field_tag :invitation_token, @invitation.token
-            .col-sm-offset-2.controls
-              = f.submit 'Sign Up', class: 'btn btn-default'        
+              = hidden_field_tag :invitation_token, @invitation.token      
+            %script(src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL" data-name="Myflix" data-description="Subscribe only 9.99 per month" data-amount="999" data-locale="auto" data-label="Pay $9.99 for subscribtion")
+       
         / %fieldset.credit_car
         /   .form-group
         /     %label.control-label.col-sm-2 Credit Card Number
