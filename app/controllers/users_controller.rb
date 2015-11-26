@@ -1,3 +1,5 @@
+FOR TEST
+
 class UsersController < ApplicationController
 
   before_action :require_user, only: [:people]
