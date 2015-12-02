@@ -19,7 +19,7 @@ gem 'sidekiq'
 gem 'mailgun-ruby'
 gem 'sentry-raven'
 gem 'carrierwave'
-gem "mini_magick"
+gem 'mini_magick'
 
 group :development do
   gem 'thin'
