@@ -1,0 +1,16 @@
+test_key: "123qwe"
+
+test:
+
+  SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
+  PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
+
+staging:
+
+  SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
+  PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
+
+production:
+
+  SECRET_KEY: "sk_live_qVR4Ujqng0u1qkm0o19raZK4"
+  PUBLISH_KEY: "pk_live_RtNV2qUiuM09Wgpap6U2KbVi"
