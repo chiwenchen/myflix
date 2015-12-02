@@ -20,7 +20,7 @@ gem 'mailgun-ruby'
 gem 'sentry-raven'
 gem 'carrierwave'
 gem 'stripe'
-
+gem 'figaro'
 group :development do
   gem 'thin'
   gem "better_errors"
