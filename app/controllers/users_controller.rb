@@ -39,6 +39,7 @@ class UsersController < ApplicationController
         redirect_to home_path    
       rescue Stripe::CardError => e
         flash[:warning] = e.to_s
+        User.find_by(email: @user.email).delete
         redirect_to register_path
       end
       if @invitation
