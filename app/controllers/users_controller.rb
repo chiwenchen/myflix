@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   private
 
   def strong_params
-    (params.require(:user).permit(:name, :password, :email))
+    params.require(:user).permit(:name, :password, :email)
   end
 
   def charge_card(token, user)

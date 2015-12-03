@@ -1,5 +1,5 @@
 test_key: "123qwe"
-
+PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
 test:
 
   SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"

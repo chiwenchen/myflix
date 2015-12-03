@@ -1,7 +1,7 @@
 %head
   %script(type="text/javascript" src="https://js.stripe.com/v2/")
   %script(type="text/javascript")
-    Stripe.setPublishableKey('pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL');
+    Stripe.setPublishableKey(ENV['PUBLISH_KEY']);
   = javascript_include_tag "payment"
 
 
