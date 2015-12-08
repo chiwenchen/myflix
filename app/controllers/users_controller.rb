@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(strong_params)
     @invitation = Invitation.find_by(token: params[:invitation_token]) if params[:invitation_token]
-    Stripe.api_key = "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
+    Stripe.api_key = ENV['SECRET_KEY']
     token = params[:stripeToken]
 
     if @user.valid?
