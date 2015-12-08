@@ -1,11 +1,9 @@
-test_key: "123qwe"
-
 test:
 
   SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
   PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
 
-staging:
+development:
 
   SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
   PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
