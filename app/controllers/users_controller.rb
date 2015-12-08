@@ -59,6 +59,7 @@ class UsersController < ApplicationController
   end
 
   def charge_card(token, user)
+    binding.pry
     charge = Stripe::Charge.create(
       amount: 999, 
       currency: "usd",
