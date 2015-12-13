@@ -19,6 +19,9 @@ gem 'sidekiq'
 gem 'mailgun-ruby'
 gem 'sentry-raven'
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'stripe'
+gem 'figaro'
 
 group :development do
   gem 'thin'
