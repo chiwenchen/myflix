@@ -129,6 +129,8 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    figaro (1.1.1)
+      thor (~> 0.14)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -158,6 +160,7 @@ GEM
       rest-client (~> 1.6)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_magick (4.3.6)
     mini_portile (0.6.2)
     minitest (5.3.4)
     multi_json (1.10.1)
@@ -247,6 +250,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    stripe (1.31.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -287,11 +293,13 @@ DEPENDENCIES
   database_cleaner (= 1.2.0)
   fabrication
   faker
+  figaro
   haml-rails
   jquery-rails
   launchy
   letter_opener
   mailgun-ruby
+  mini_magick
   pg
   pry
   pry-nav
@@ -303,6 +311,7 @@ DEPENDENCIES
   sentry-raven
   shoulda-matchers
   sidekiq
+  stripe
   thin
   uglifier
 
