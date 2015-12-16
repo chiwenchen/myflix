@@ -38,6 +38,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to home_path    
       rescue Stripe::CardError => e
+        binding.pry
         flash[:warning] = e.to_s
         User.find_by(email: @user.email).delete
         redirect_to register_path
