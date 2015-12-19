@@ -30,17 +30,15 @@ class UsersController < ApplicationController
     token = params[:stripeToken]
 
     if @user.valid?
-      begin
+      charge_card = charge_card(token, @user)
+      if charge_card.successful?
         @user.save
-        charge_card(token, @user)
         AppMailer.delay.send_welcome_message(@user)
         flash[:success] = 'You are successful Registed and Signed in'
         session[:user_id] = @user.id
-        redirect_to home_path    
-      rescue Stripe::CardError => e
-        binding.pry
-        flash[:warning] = e.to_s
-        User.find_by(email: @user.email).delete
+        redirect_to home_path
+      else
+        flash[:warning] = charge_card.response.to_s
         redirect_to register_path
       end
       if @invitation
