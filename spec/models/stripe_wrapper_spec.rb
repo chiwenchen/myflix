@@ -6,7 +6,6 @@ describe StripeWrapper do
       before do 
         StripeWrapper::Charge.set_api_key
       end
-
       let (:token) do 
         Stripe::Token.create(
           :card => {

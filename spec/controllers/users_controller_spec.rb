@@ -32,6 +32,12 @@ describe UsersController do
 
   describe "POST create" do 
     context '@user is authenticated' do
+      before do 
+        charge_card = double('charge_card')
+        charge_card.stub(:successful?).and_return(true)
+        StripeWrapper::Charge.stub(:create).and_return(charge_card) 
+      end
+
       it 'saves @user' do 
         post :create, user: Fabricate.attributes_for(:user)
         expect(User.count).to eq(1)
@@ -77,6 +83,12 @@ describe UsersController do
     end
 
     context 'sends mail' do 
+      before do 
+        charge_card = double('charge_card')
+        charge_card.stub(:successful?).and_return(true)
+        StripeWrapper::Charge.stub(:create).and_return(charge_card) 
+      end
+      
       after{ActionMailer::Base.deliveries.clear}
 
       it 'sends out the email' do 
