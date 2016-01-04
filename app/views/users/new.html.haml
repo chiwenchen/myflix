@@ -1,7 +1,7 @@
 %head
   %script(type="text/javascript" src="https://js.stripe.com/v2/")
   %script(type="text/javascript")
-    Stripe.setPublishableKey('#{ENV['PUBLISH_KEY']}');
+    Stripe.setPublishableKey('#{ENV['STRIPE_PUBLISH_KEY']}');
   = javascript_include_tag "payment"
 
 %section.register.container
@@ -20,13 +20,13 @@
           .form-group
             %span.payment-errors
           .form-group
-            %label.control-label.col-sm-2 Credit Card Number
+            %label.control-label.col-sm-2{for: 'Card-number'} Credit Card Number
             .col-sm-6
-              %input.form-control(type="text" data-stripe="number")
+              %input#Card-number.form-control(type="text" data-stripe="number")
           .form-group
-            %label.control-label.col-sm-2 Security Code
+            %label.control-label.col-sm-2{for: 'Security-code'} Security Code
             .col-sm-6
-              %input.form-control(type="text" data-stripe="cvc")
+              %input#Security-code.form-control(type="text" data-stripe="cvc")
           .form-group
             %label.control-label.col-sm-2 Expiration
             .col-sm-3

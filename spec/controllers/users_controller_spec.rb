@@ -31,7 +31,7 @@ describe UsersController do
   end
 
   describe "POST create" do 
-    context '@user is authenticated' do
+    context 'valid personal info and credit card' do
       before do 
         charge_card = double('charge_card')
         charge_card.stub(:successful?).and_return(true)
@@ -53,20 +53,27 @@ describe UsersController do
         post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
         expect(assigns(:invitation)).to be_present
       end
+
       it "makes the new user follow the inviter" do 
         @invitation = Fabricate(:invitation)
         post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
         expect(assigns(:user).followed?(User.find(@invitation.inviter_id))).to be_true
       end
+
       it "makes the inviter follow the new user" do 
         @invitation = Fabricate(:invitation)
         post :create, user: Fabricate.attributes_for(:user), invitation_token: @invitation.token
         expect(User.find(@invitation.inviter_id).followed?(assigns(:user))).to be_true
       end
+
+      it "charges the credit card" do 
+        post :create, user: Fabricate.attributes_for(:user)
+        expect(assigns(:charge_card).successful?).to be_true
+      end
     end
 
-    context '@user is not authenticated' do 
-      it 'do not save @user' do 
+    context 'invalid personal info' do 
+      it 'does not create new user' do 
         post :create, user: {password: 'password', name: 'Saya'}
         expect(User.count).to eq(0)
       end
@@ -79,6 +86,25 @@ describe UsersController do
       it 'sets @user' do 
         post :create, user: {password: 'password', name: 'Saya'}
         expect(assigns(:user)).to be_an_instance_of(User)
+      end
+    end
+
+    context 'valid personal info and invalid credit card' do 
+      before do 
+        charge_card = double('charge_card')
+        charge_card.stub(:successful?).and_return(false)
+        charge_card.stub(:response).and_return('Your card number is incorrect.')
+        StripeWrapper::Charge.stub(:create).and_return(charge_card) 
+        post :create, user: Fabricate.attributes_for(:user)
+      end
+      it 'does not create new user' do 
+        expect(User.count).to eq(0)
+      end
+      it 'sets flash warning message' do 
+        expect(flash[:warning]).to eq('Your card number is incorrect.')
+      end
+      it 'redirect_to register_path' do 
+        expect(response).to redirect_to register_path
       end
     end
 

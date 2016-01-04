@@ -4,6 +4,7 @@ feature 'admin can add video and user can watch' do
   background do
     Fabricate(:category, title: 'Science Fiction')
   end
+  
   scenario 'admin can add video' do
     sign_in_admin
     click_link("Add a video")

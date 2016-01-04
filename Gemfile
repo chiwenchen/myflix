@@ -35,14 +35,16 @@ group :development, :test do
 end
 
 group :test do
-  gem 'database_cleaner', '1.2.0'
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
   gem 'fabrication'
   gem 'faker'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production, :staging do
