@@ -6,24 +6,33 @@ feature 'user register and pay with card', {js: true, vcr: true} do
     visit register_path
   end
   scenario 'with valid user info and credit card' do 
-    fill_in_form('4242424242424242')
+    fill_in_form('password','4242424242424242')
     page.should have_content 'You are successful Registed and Signed in'
   end
   scenario 'with valid user info and invalid card' do 
-    fill_in_form('123')
+    fill_in_form('password','123')
     page.should have_content 'This card number looks invalid.'
   end
   scenario 'with valid user info and declined card' do 
-    fill_in_form('4000000000000002')
+    fill_in_form('password','4000000000000002')
     page.should have_content 'Your card was declined.'
   end
-  scenario 'with invalid user info and valid card'
-  scenario 'with invalid user info and invalid card'
-  scenario 'with invalid user info and declined card'
+  scenario 'with invalid user info and valid card' do 
+    fill_in_form(nil,'4242424242424242')
+    page.should have_content "can't be blank"
+  end
+  scenario 'with invalid user info and invalid card' do 
+    fill_in_form(nil,'123')
+    page.should have_content 'This card number looks invalid.'
+  end
+  scenario 'with invalid user info and declined card' do 
+    fill_in_form(nil,'4000000000000002')
+    page.should have_content "can't be blank"
+  end
 
-  def fill_in_form(card_number)
+  def fill_in_form(password, card_number)
     fill_in 'Email', with: 'salus@example.com'
-    fill_in 'Password', with: 'password'
+    fill_in 'Password', with: password
     fill_in 'Name', with: 'Salus'
     fill_in 'Card-number', with: card_number
     fill_in 'Security-code', with: '123'
