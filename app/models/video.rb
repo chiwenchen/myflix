@@ -22,5 +22,9 @@ class Video < ActiveRecord::Base
     self.video_url = string
   end
 
+  def rating
+    reviews.average(:rating).round(1)
+  end
+
 
 end
