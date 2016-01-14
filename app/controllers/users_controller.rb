@@ -26,13 +26,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(strong_params)
     result = SignUpService.new(@user).signup(params[:invitation_token], params[:stripeToken])
-    flash[result.status] = result.message if result.status
+    flash[result.status] = result.message
     if result.status == :success
-      binding.pry
       session[:user_id] = @user.id
       redirect_to home_path
-    elsif result.status == :failure
-      binding.pry
+    else
       render 'new'
     end
   end
