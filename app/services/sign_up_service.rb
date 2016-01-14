@@ -11,8 +11,8 @@ class SignUpService
   def signup(invitation_token, stripe_token)
     token = stripe_token
     if user.valid?
-      @charge_card = charge_card(token, user)
-      if @charge_card.successful?
+      charge_card = charge(token, user)
+      if charge_card.successful?
         user.save
         AppMailer.delay.send_welcome_message(@user)
         connect_user_and_inviter(user, invitation_token)
@@ -21,7 +21,7 @@ class SignUpService
         self
       else
         @status = :warning
-        @message = @charge_card.response.to_s
+        @message = charge_card.response.to_s
         self
       end
     else
@@ -31,10 +31,14 @@ class SignUpService
     end
   end
 
+  def successful?
+    self.status == :success
+  end
+
   private
 
-  def charge_card(token, user)
-    charge = StripeWrapper::Charge.create(
+  def charge(token, user)
+    StripeWrapper::Charge.create(
       amount: 999, 
       source: token,
       description: "Register fee for #{user.email}"
@@ -49,5 +53,7 @@ class SignUpService
       inviter.follow(user)
     end
   end
+
+
 
 end

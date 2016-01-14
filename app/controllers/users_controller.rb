@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(strong_params)
     result = SignUpService.new(@user).signup(params[:invitation_token], params[:stripeToken])
     flash[result.status] = result.message
-    if result.status == :success
+    if result.successful?
       session[:user_id] = @user.id
       redirect_to home_path
     else
