@@ -8,7 +8,7 @@ class SignUpService
     @message = message
   end
 
-  def signup(invitation_token, stripe_token)
+  def signup(stripe_token, invitation_token = nil)
     token = stripe_token
     if user.valid?
       charge_card = charge(token, user)
@@ -18,17 +18,15 @@ class SignUpService
         connect_user_and_inviter(user, invitation_token)
         @status = :success
         @message = 'You are successful Registed and Signed in'
-        self
       else
         @status = :warning
         @message = charge_card.response.to_s
-        self
       end
     else
       @status = :warning
       @message = 'user info is not valid, please fullfil the column highlighted'
-      self
     end
+    self
   end
 
   def successful?

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(strong_params)
-    result = SignUpService.new(@user).signup(params[:invitation_token], params[:stripeToken])
+    result = SignUpService.new(@user).signup(params[:stripeToken], params[:invitation_token])
     flash[result.status] = result.message
     if result.successful?
       session[:user_id] = @user.id
