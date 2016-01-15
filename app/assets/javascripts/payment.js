@@ -13,7 +13,7 @@ function stripeResponseHandler(status, response) {
 
   if (response.error) {
     $form.find('.payment-errors').text(response.error.message);
-    $form.find('.payment-errors').css('display', 'block');
+    $form.find('.payment-errors').addClass('alert alert-danger col-sm-10');
     $form.find('button').prop('disabled', false);
   } else {
     var token = response.id;

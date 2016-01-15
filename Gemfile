@@ -11,10 +11,6 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'bootstrap_form'
 gem 'bcrypt-ruby', '~> 3.1.0' 
-gem 'fabrication'
-gem 'faker'
-gem 'capybara'
-gem 'launchy'
 gem 'sidekiq'
 gem 'mailgun-ruby'
 gem 'sentry-raven'
@@ -22,6 +18,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'stripe'
 gem 'figaro'
+gem 'draper'
+
 
 group :development do
   gem 'thin'
@@ -38,8 +36,16 @@ group :development, :test do
 end
 
 group :test do
-  gem 'database_cleaner', '1.2.0'
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'fabrication'
+  gem 'faker'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production, :staging do
