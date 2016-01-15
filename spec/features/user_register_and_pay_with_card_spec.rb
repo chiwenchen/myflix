@@ -6,32 +6,32 @@ feature 'user register and pay with card', :js, :vcr do
 
   scenario 'with valid user info and credit card' do 
     fill_in_form('password','4242424242424242')
-    page.should have_content 'You are successful Registed and Signed in'
+    expect(page).to have_content 'You are successful Registed and Signed in'
   end
 
   scenario 'with valid user info and invalid card' do 
     fill_in_form('password','123')
-    page.should have_content 'This card number looks invalid.'
+    expect(page).to have_content 'This card number looks invalid.'
   end
 
   scenario 'with valid user info and declined card' do 
     fill_in_form('password','4000000000000002')
-    page.should have_content 'Your card was declined.'
+    expect(page).to have_content 'Your card was declined.'
   end
 
   scenario 'with invalid user info and valid card' do 
     fill_in_form(nil,'4242424242424242')
-    page.should have_content "can't be blank"
+    expect(page).to have_content "can't be blank"
   end
 
   scenario 'with invalid user info and invalid card' do 
     fill_in_form(nil,'123')
-    page.should have_content 'This card number looks invalid.'
+    expect(page).to have_content 'This card number looks invalid.'
   end
 
   scenario 'with invalid user info and declined card' do 
     fill_in_form(nil,'4000000000000002')
-    page.should have_content "can't be blank"
+    expect(page).to have_content "can't be blank"
   end
 
   def fill_in_form(password, card_number)
