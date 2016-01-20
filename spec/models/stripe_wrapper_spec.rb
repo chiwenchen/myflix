@@ -14,6 +14,17 @@ describe StripeWrapper do
     ).id
   end
 
+  let (:invalid_token) do 
+    Stripe::Token.create(
+      :card => {
+        :number => "4000000000000002",
+        :exp_month => 12,
+        :exp_year => 2020,
+        :cvc => "314"
+      },
+    ).id
+  end
+
   let(:alice){Fabricate(:user)}
 
   describe StripeWrapper::Charge do
@@ -34,10 +45,22 @@ describe StripeWrapper do
 
   describe StripeWrapper::Customer do 
     describe ".create" do 
+
       it 'creates a customer' , :vcr do 
         customer = StripeWrapper::Customer.create(valid_token, alice)
-        expect(customer.id).to be_present
+        expect(customer.response.id).to be_present
       end
+
+      it 'does not create a customer if the token is invalid', :vcr do 
+        customer = StripeWrapper::Customer.create(invalid_token, alice)
+        expect(customer.response).to be_nil
+      end
+
+      it 'sets error message if the token is invalid', :vcr do 
+        customer = StripeWrapper::Customer.create(invalid_token, alice)
+        expect(customer.error_message).to eq("Your card was declined.")
+      end
+
     end
   end
   

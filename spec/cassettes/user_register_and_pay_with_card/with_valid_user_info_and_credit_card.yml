@@ -2,129 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.stripe.com/v1/charges
-    body:
-      encoding: US-ASCII
-      string: amount=999&currency=usd&description=Register+fee+for+salus%40example.com&source=tok_17PSJNK6bLvHx8bUVEz7eH42
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Stripe/v1 RubyBindings/1.31.0
-      Authorization:
-      - Bearer sk_test_zQGPrRr1mLOGMn9kY1fHLcqH
-      Content-Type:
-      - application/x-www-form-urlencoded
-      X-Stripe-Client-User-Agent:
-      - '{"bindings_version":"1.31.0","lang":"ruby","lang_version":"2.1.7 p400 (2015-08-18)","platform":"x86_64-darwin14.0","engine":"ruby","publisher":"stripe","uname":"Darwin
-        IvandeMacBook-Air.local 14.5.0 Darwin Kernel Version 14.5.0: Tue Sep  1 21:23:09
-        PDT 2015; root:xnu-2782.50.1~1/RELEASE_X86_64 x86_64","hostname":"IvandeMacBook-Air.local"}'
-      Content-Length:
-      - '108'
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx
-      Date:
-      - Mon, 04 Jan 2016 06:59:26 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1455'
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS, DELETE
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Max-Age:
-      - '300'
-      Cache-Control:
-      - no-cache, no-store
-      Request-Id:
-      - req_7elrVnDpLAShHQ
-      Stripe-Version:
-      - '2015-10-16'
-      Strict-Transport-Security:
-      - max-age=31556926; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ch_17PSJOK6bLvHx8bUR5ocHF2w",
-          "object": "charge",
-          "amount": 999,
-          "amount_refunded": 0,
-          "application_fee": null,
-          "balance_transaction": "txn_17PSJOK6bLvHx8bUuVMG7ANF",
-          "captured": true,
-          "created": 1451890766,
-          "currency": "usd",
-          "customer": null,
-          "description": "Register fee for salus@example.com",
-          "destination": null,
-          "dispute": null,
-          "failure_code": null,
-          "failure_message": null,
-          "fraud_details": {},
-          "invoice": null,
-          "livemode": false,
-          "metadata": {},
-          "paid": true,
-          "receipt_email": null,
-          "receipt_number": null,
-          "refunded": false,
-          "refunds": {
-            "object": "list",
-            "data": [],
-            "has_more": false,
-            "total_count": 0,
-            "url": "/v1/charges/ch_17PSJOK6bLvHx8bUR5ocHF2w/refunds"
-          },
-          "shipping": null,
-          "source": {
-            "id": "card_17PSJNK6bLvHx8bU9VDxdOfG",
-            "object": "card",
-            "address_city": null,
-            "address_country": null,
-            "address_line1": null,
-            "address_line1_check": null,
-            "address_line2": null,
-            "address_state": null,
-            "address_zip": null,
-            "address_zip_check": null,
-            "brand": "Visa",
-            "country": "US",
-            "customer": null,
-            "cvc_check": "pass",
-            "dynamic_last4": null,
-            "exp_month": 5,
-            "exp_year": 2018,
-            "fingerprint": "faS4loXvHw0MNPP7",
-            "funding": "credit",
-            "last4": "4242",
-            "metadata": {},
-            "name": null,
-            "tokenization_method": null
-          },
-          "statement_descriptor": null,
-          "status": "succeeded"
-        }
-    http_version: 
-  recorded_at: Mon, 04 Jan 2016 06:59:39 GMT
-- request:
-    method: post
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: email=salus%40example.com&plan=base&source=tok_17UvGMK6bLvHx8bUAlsJTEbT
+      string: plan=base&source=tok_17VIZTK6bLvHx8bUXaXmDiKL
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -141,7 +22,7 @@ http_interactions:
         IvandeMacBook-Air.local 14.5.0 Darwin Kernel Version 14.5.0: Tue Sep  1 21:23:09
         PDT 2015; root:xnu-2782.50.1~1/RELEASE_X86_64 x86_64","hostname":"IvandeMacBook-Air.local"}'
       Content-Length:
-      - '71'
+      - '45'
   response:
     status:
       code: 200
@@ -150,11 +31,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 19 Jan 2016 08:54:56 GMT
+      - Wed, 20 Jan 2016 09:48:13 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '2355'
+      - '2340'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -168,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7kQ6Dr9tw8n9K3
+      - req_7koBao88hts1zd
       Stripe-Version:
       - '2015-10-16'
       Strict-Transport-Security:
@@ -177,16 +58,16 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "cus_7kQ6vSOWTlXYov",
+          "id": "cus_7koBBmNlRTOAK8",
           "object": "customer",
           "account_balance": 0,
-          "created": 1453193695,
+          "created": 1453283293,
           "currency": "usd",
-          "default_source": "card_17UvGMK6bLvHx8bUUae93wrC",
+          "default_source": "card_17VIZTK6bLvHx8bUNHNXsbcA",
           "delinquent": false,
           "description": null,
           "discount": null,
-          "email": "salus@example.com",
+          "email": null,
           "livemode": false,
           "metadata": {},
           "shipping": null,
@@ -194,7 +75,7 @@ http_interactions:
             "object": "list",
             "data": [
               {
-                "id": "card_17UvGMK6bLvHx8bUUae93wrC",
+                "id": "card_17VIZTK6bLvHx8bUNHNXsbcA",
                 "object": "card",
                 "address_city": null,
                 "address_country": null,
@@ -206,7 +87,7 @@ http_interactions:
                 "address_zip_check": null,
                 "brand": "Visa",
                 "country": "US",
-                "customer": "cus_7kQ6vSOWTlXYov",
+                "customer": "cus_7koBBmNlRTOAK8",
                 "cvc_check": "pass",
                 "dynamic_last4": null,
                 "exp_month": 5,
@@ -221,20 +102,20 @@ http_interactions:
             ],
             "has_more": false,
             "total_count": 1,
-            "url": "/v1/customers/cus_7kQ6vSOWTlXYov/sources"
+            "url": "/v1/customers/cus_7koBBmNlRTOAK8/sources"
           },
           "subscriptions": {
             "object": "list",
             "data": [
               {
-                "id": "sub_7kQ6Kil01fwNJI",
+                "id": "sub_7koBkM7csw8ZJM",
                 "object": "subscription",
                 "application_fee_percent": null,
                 "cancel_at_period_end": false,
                 "canceled_at": null,
-                "current_period_end": 1455872095,
-                "current_period_start": 1453193695,
-                "customer": "cus_7kQ6vSOWTlXYov",
+                "current_period_end": 1455961693,
+                "current_period_start": 1453283293,
+                "customer": "cus_7koBBmNlRTOAK8",
                 "discount": null,
                 "ended_at": null,
                 "metadata": {},
@@ -253,7 +134,7 @@ http_interactions:
                   "trial_period_days": null
                 },
                 "quantity": 1,
-                "start": 1453193695,
+                "start": 1453283293,
                 "status": "active",
                 "tax_percent": null,
                 "trial_end": null,
@@ -262,9 +143,9 @@ http_interactions:
             ],
             "has_more": false,
             "total_count": 1,
-            "url": "/v1/customers/cus_7kQ6vSOWTlXYov/subscriptions"
+            "url": "/v1/customers/cus_7koBBmNlRTOAK8/subscriptions"
           }
         }
     http_version: 
-  recorded_at: Tue, 19 Jan 2016 08:54:56 GMT
+  recorded_at: Wed, 20 Jan 2016 09:48:13 GMT
 recorded_with: VCR 3.0.0

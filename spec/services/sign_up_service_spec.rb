@@ -5,18 +5,18 @@ Sidekiq::Testing.inline!
 describe SignUpService do 
   describe "#sign_up" do
     context 'valid personal info and credit card' do
-      let(:charge_card) {double('charge_card')}
+      let(:customer) {double('customer')}
       let(:mark) {Fabricate.build(:user)}
       before do 
-        charge_card.stub(:successful?).and_return(true)
-        StripeWrapper::Charge.stub(:create).and_return(charge_card) 
+        customer.stub(:successful?).and_return(true)
+        StripeWrapper::Customer.stub(:create).and_return(customer) 
       end
 
       after{ActionMailer::Base.deliveries.clear}
 
       it "charges the credit card" do 
         SignUpService.new(mark).signup('stripe_token')
-        expect((charge_card).successful?).to be_truthy
+        expect((customer).successful?).to be_truthy
       end
 
       it 'saves @user' do 
@@ -38,11 +38,11 @@ describe SignUpService do
     end
 
     context 'invalid personal info' do 
-      let(:charge_card) {double('charge_card')}
+      let(:customer) {double('customer')}
       let(:mark) {Fabricate.build(:user, name: nil)}
       before do 
-        charge_card.stub(:successful?).and_return(true)
-        StripeWrapper::Charge.stub(:create).and_return(charge_card) 
+        customer.stub(:successful?).and_return(true)
+        StripeWrapper::Charge.stub(:create).and_return(customer) 
       end
 
       it 'does not create new user' do 
@@ -63,11 +63,11 @@ describe SignUpService do
     end
 
     context 'valid personal info and invalid credit card' do 
-      let(:charge_card) {double('charge_card')}
+      let(:customer) {double('customer')}
       let(:mark) {Fabricate.build(:user, name: nil)}
       before do 
-        charge_card.stub(:successful?).and_return(true)
-        StripeWrapper::Charge.stub(:create).and_return(charge_card) 
+        customer.stub(:successful?).and_return(true)
+        StripeWrapper::Charge.stub(:create).and_return(customer) 
       end
 
       it 'does not create new user' do 

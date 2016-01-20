@@ -40,5 +40,6 @@ Myflix::Application.routes.draw do
   get '/home', to: 'videos#home'
   get ':controller(/:action)' # non-resourceful routes 
 
+  mount StripeEvent::Engine, at: '/stripe_events'
   #get 'videos/(:action)', controller: 'videos'
 end

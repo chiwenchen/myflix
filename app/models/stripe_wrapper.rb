@@ -10,11 +10,10 @@ module StripeWrapper
 
     def self.create(option={}) # parameters: source, user, amount, description
       begin
-        customer = StripeWrapper::Customer.create(option[:source], option[:user])
         response = Stripe::Charge.create(
           amount: option[:amount], 
           currency: 'usd', 
-          customer: customer.id,
+          source: option[:source],
           description: option[:description]
         )
         new(response, :success)
@@ -44,12 +43,29 @@ module StripeWrapper
 
   class Customer 
 
-    def self.create(token, user)
-      Stripe::Customer.create(
-        :source => token,
-        :plan => "base",
-        :email => user.email
-      )
+    attr_reader :response, :error_message
+
+    def initialize(response, error_message)
+      @response = response
+      @error_message = error_message
     end
+
+    def self.create(token, user)
+      begin
+        response = Stripe::Customer.create(
+          :source => token,
+          :plan => "base"
+        )
+        new(response, nil)
+      rescue Stripe::CardError => e
+        new(response, e.message)
+      end
+    end
+
+    def successful?
+      error_message == nil
+    end
+
   end
+
 end
