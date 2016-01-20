@@ -8,12 +8,13 @@ module StripeWrapper
       @status = status
     end
 
-    def self.create(option={})
+    def self.create(option={}) # parameters: source, user, amount, description
       begin
+        customer = StripeWrapper::Customer.create(option[:source], option[:user])
         response = Stripe::Charge.create(
           amount: option[:amount], 
           currency: 'usd', 
-          source: option[:source],
+          customer: customer.id,
           description: option[:description]
         )
         new(response, :success)
@@ -39,11 +40,14 @@ module StripeWrapper
         :id => 'basic'
       )
     end
+  end
 
-    def customer(token, user)
-      customer = Stripe::Customer.create(
+  class Customer 
+
+    def self.create(token, user)
+      Stripe::Customer.create(
         :source => token,
-        :plan => "basic",
+        :plan => "base",
         :email => user.email
       )
     end

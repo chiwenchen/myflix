@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 19 Jan 2016 08:52:51 GMT
+      - Tue, 19 Jan 2016 08:52:48 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7kQ418QPe73Ytp
+      - req_7kQ4OQl3LBLMWA
       Stripe-Version:
       - '2015-10-16'
       Strict-Transport-Security:
@@ -58,10 +58,10 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_17UvENK6bLvHx8bU9OaT5gNr",
+          "id": "tok_17UvEKK6bLvHx8bUEsN3G7zs",
           "object": "token",
           "card": {
-            "id": "card_17UvENK6bLvHx8bUIRFSEHFh",
+            "id": "card_17UvEKK6bLvHx8bU3vGPdNK9",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -85,19 +85,19 @@ http_interactions:
             "tokenization_method": null
           },
           "client_ip": "118.160.51.34",
-          "created": 1453193571,
+          "created": 1453193568,
           "livemode": false,
           "type": "card",
           "used": false
         }
     http_version: 
-  recorded_at: Tue, 19 Jan 2016 08:52:51 GMT
+  recorded_at: Tue, 19 Jan 2016 08:52:48 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: email=aidan_jaskolski%40nienow.biz&plan=base&source=tok_17UvENK6bLvHx8bU9OaT5gNr
+      string: email=magdalena_reinger%40roob.org&plan=base&source=tok_17UvEKK6bLvHx8bUEsN3G7zs
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -123,7 +123,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 19 Jan 2016 08:52:52 GMT
+      - Tue, 19 Jan 2016 08:52:50 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7kQ4zFQSyQ2LBm
+      - req_7kQ4drbqEvfJk5
       Stripe-Version:
       - '2015-10-16'
       Strict-Transport-Security:
@@ -150,16 +150,16 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "cus_7kQ4mLoRNQ0lgg",
+          "id": "cus_7kQ4hCiwksBt4w",
           "object": "customer",
           "account_balance": 0,
-          "created": 1453193572,
+          "created": 1453193569,
           "currency": "usd",
-          "default_source": "card_17UvENK6bLvHx8bUIRFSEHFh",
+          "default_source": "card_17UvEKK6bLvHx8bU3vGPdNK9",
           "delinquent": false,
           "description": null,
           "discount": null,
-          "email": "aidan_jaskolski@nienow.biz",
+          "email": "magdalena_reinger@roob.org",
           "livemode": false,
           "metadata": {},
           "shipping": null,
@@ -167,7 +167,7 @@ http_interactions:
             "object": "list",
             "data": [
               {
-                "id": "card_17UvENK6bLvHx8bUIRFSEHFh",
+                "id": "card_17UvEKK6bLvHx8bU3vGPdNK9",
                 "object": "card",
                 "address_city": null,
                 "address_country": null,
@@ -179,7 +179,7 @@ http_interactions:
                 "address_zip_check": null,
                 "brand": "Visa",
                 "country": "US",
-                "customer": "cus_7kQ4mLoRNQ0lgg",
+                "customer": "cus_7kQ4hCiwksBt4w",
                 "cvc_check": "pass",
                 "dynamic_last4": null,
                 "exp_month": 12,
@@ -194,20 +194,20 @@ http_interactions:
             ],
             "has_more": false,
             "total_count": 1,
-            "url": "/v1/customers/cus_7kQ4mLoRNQ0lgg/sources"
+            "url": "/v1/customers/cus_7kQ4hCiwksBt4w/sources"
           },
           "subscriptions": {
             "object": "list",
             "data": [
               {
-                "id": "sub_7kQ43qsbEaCzKE",
+                "id": "sub_7kQ4OUTnxMeoWW",
                 "object": "subscription",
                 "application_fee_percent": null,
                 "cancel_at_period_end": false,
                 "canceled_at": null,
-                "current_period_end": 1455871972,
-                "current_period_start": 1453193572,
-                "customer": "cus_7kQ4mLoRNQ0lgg",
+                "current_period_end": 1455871969,
+                "current_period_start": 1453193569,
+                "customer": "cus_7kQ4hCiwksBt4w",
                 "discount": null,
                 "ended_at": null,
                 "metadata": {},
@@ -226,7 +226,7 @@ http_interactions:
                   "trial_period_days": null
                 },
                 "quantity": 1,
-                "start": 1453193572,
+                "start": 1453193569,
                 "status": "active",
                 "tax_percent": null,
                 "trial_end": null,
@@ -235,129 +235,9 @@ http_interactions:
             ],
             "has_more": false,
             "total_count": 1,
-            "url": "/v1/customers/cus_7kQ4mLoRNQ0lgg/subscriptions"
+            "url": "/v1/customers/cus_7kQ4hCiwksBt4w/subscriptions"
           }
         }
     http_version: 
-  recorded_at: Tue, 19 Jan 2016 08:52:52 GMT
-- request:
-    method: post
-    uri: https://api.stripe.com/v1/charges
-    body:
-      encoding: US-ASCII
-      string: amount=999&currency=usd&customer=cus_7kQ4mLoRNQ0lgg&description=this+is+a+valid+charge
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Stripe/v1 RubyBindings/1.31.0
-      Authorization:
-      - Bearer sk_test_zQGPrRr1mLOGMn9kY1fHLcqH
-      Content-Type:
-      - application/x-www-form-urlencoded
-      X-Stripe-Client-User-Agent:
-      - '{"bindings_version":"1.31.0","lang":"ruby","lang_version":"2.1.7 p400 (2015-08-18)","platform":"x86_64-darwin14.0","engine":"ruby","publisher":"stripe","uname":"Darwin
-        IvandeMacBook-Air.local 14.5.0 Darwin Kernel Version 14.5.0: Tue Sep  1 21:23:09
-        PDT 2015; root:xnu-2782.50.1~1/RELEASE_X86_64 x86_64","hostname":"IvandeMacBook-Air.local"}'
-      Content-Length:
-      - '86'
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx
-      Date:
-      - Tue, 19 Jan 2016 08:52:53 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1493'
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS, DELETE
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Max-Age:
-      - '300'
-      Cache-Control:
-      - no-cache, no-store
-      Request-Id:
-      - req_7kQ4rA5N733qD2
-      Stripe-Version:
-      - '2015-10-16'
-      Strict-Transport-Security:
-      - max-age=31556926; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ch_17UvEPK6bLvHx8bUrTuwpmu7",
-          "object": "charge",
-          "amount": 999,
-          "amount_refunded": 0,
-          "application_fee": null,
-          "balance_transaction": "txn_17UvEPK6bLvHx8bUagib0GLI",
-          "captured": true,
-          "created": 1453193573,
-          "currency": "usd",
-          "customer": "cus_7kQ4mLoRNQ0lgg",
-          "description": "this is a valid charge",
-          "destination": null,
-          "dispute": null,
-          "failure_code": null,
-          "failure_message": null,
-          "fraud_details": {},
-          "invoice": null,
-          "livemode": false,
-          "metadata": {},
-          "order": null,
-          "paid": true,
-          "receipt_email": null,
-          "receipt_number": null,
-          "refunded": false,
-          "refunds": {
-            "object": "list",
-            "data": [],
-            "has_more": false,
-            "total_count": 0,
-            "url": "/v1/charges/ch_17UvEPK6bLvHx8bUrTuwpmu7/refunds"
-          },
-          "shipping": null,
-          "source": {
-            "id": "card_17UvENK6bLvHx8bUIRFSEHFh",
-            "object": "card",
-            "address_city": null,
-            "address_country": null,
-            "address_line1": null,
-            "address_line1_check": null,
-            "address_line2": null,
-            "address_state": null,
-            "address_zip": null,
-            "address_zip_check": null,
-            "brand": "Visa",
-            "country": "US",
-            "customer": "cus_7kQ4mLoRNQ0lgg",
-            "cvc_check": "pass",
-            "dynamic_last4": null,
-            "exp_month": 12,
-            "exp_year": 2020,
-            "fingerprint": "faS4loXvHw0MNPP7",
-            "funding": "credit",
-            "last4": "4242",
-            "metadata": {},
-            "name": null,
-            "tokenization_method": null
-          },
-          "statement_descriptor": null,
-          "status": "succeeded"
-        }
-    http_version: 
-  recorded_at: Tue, 19 Jan 2016 08:52:53 GMT
+  recorded_at: Tue, 19 Jan 2016 08:52:50 GMT
 recorded_with: VCR 3.0.0

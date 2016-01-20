@@ -39,6 +39,7 @@ class SignUpService
     StripeWrapper::Charge.create(
       amount: 999, 
       source: token,
+      user: user,
       description: "Register fee for #{user.email}"
     )
   end
