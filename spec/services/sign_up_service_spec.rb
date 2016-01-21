@@ -5,7 +5,7 @@ Sidekiq::Testing.inline!
 describe SignUpService do 
   describe "#sign_up" do
     context 'valid personal info and credit card' do
-      let(:customer) {double('customer')}
+      let(:customer) {double('customer', customer_token: 'abcd')}
       let(:mark) {Fabricate.build(:user)}
       before do 
         customer.stub(:successful?).and_return(true)
@@ -22,6 +22,11 @@ describe SignUpService do
       it 'saves @user' do 
         SignUpService.new(mark).signup('stripe_token')
         expect(User.count).to eq(1)
+      end
+
+      it 'sets the customer_token to user' do 
+        SignUpService.new(mark).signup('stripe_token')
+        expect(User.first.customer_token).to be_present
       end
 
       it "sends out the mail" do 

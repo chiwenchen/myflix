@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/tokens
     body:
       encoding: US-ASCII
-      string: card[cvc]=314&card[exp_month]=12&card[exp_year]=2020&card[number]=4000000000000002
+      string: card[cvc]=314&card[exp_month]=12&card[exp_year]=2020&card[number]=4242424242424242
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 20 Jan 2016 11:21:55 GMT
+      - Wed, 20 Jan 2016 11:21:40 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7kphpn8MKd11xQ
+      - req_7kphdFBvsdPl3X
       Stripe-Version:
       - '2015-10-16'
       Strict-Transport-Security:
@@ -58,10 +58,10 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_17VK2BK6bLvHx8bUrsyQQXcW",
+          "id": "tok_17VK1wK6bLvHx8bU9ANsG568",
           "object": "token",
           "card": {
-            "id": "card_17VK2BK6bLvHx8bUGX29QsEH",
+            "id": "card_17VK1wK6bLvHx8bUnaxSeVRU",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -77,27 +77,27 @@ http_interactions:
             "dynamic_last4": null,
             "exp_month": 12,
             "exp_year": 2020,
-            "fingerprint": "R8oVFdxGDOyYQLDb",
+            "fingerprint": "faS4loXvHw0MNPP7",
             "funding": "credit",
-            "last4": "0002",
+            "last4": "4242",
             "metadata": {},
             "name": null,
             "tokenization_method": null
           },
           "client_ip": "61.230.145.4",
-          "created": 1453288915,
+          "created": 1453288900,
           "livemode": false,
           "type": "card",
           "used": false
         }
     http_version: 
-  recorded_at: Wed, 20 Jan 2016 11:21:55 GMT
+  recorded_at: Wed, 20 Jan 2016 11:21:40 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: plan=base&source=tok_17VK2BK6bLvHx8bUrsyQQXcW
+      string: plan=base&source=tok_17VK1wK6bLvHx8bU9ANsG568
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -117,17 +117,17 @@ http_interactions:
       - '45'
   response:
     status:
-      code: 402
-      message: Payment Required
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Date:
-      - Wed, 20 Jan 2016 11:21:57 GMT
+      - Wed, 20 Jan 2016 11:21:43 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '134'
+      - '2341'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -141,20 +141,103 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7kphqsVGgtO49K
+      - req_7kphiM0l2TRbr3
       Stripe-Version:
       - '2015-10-16'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "error": {
-            "message": "Your card was declined.",
-            "type": "card_error",
-            "param": "",
-            "code": "card_declined"
+          "id": "cus_7kphMQwGFEHglq",
+          "object": "customer",
+          "account_balance": 0,
+          "created": 1453288902,
+          "currency": "usd",
+          "default_source": "card_17VK1wK6bLvHx8bUnaxSeVRU",
+          "delinquent": false,
+          "description": null,
+          "discount": null,
+          "email": null,
+          "livemode": false,
+          "metadata": {},
+          "shipping": null,
+          "sources": {
+            "object": "list",
+            "data": [
+              {
+                "id": "card_17VK1wK6bLvHx8bUnaxSeVRU",
+                "object": "card",
+                "address_city": null,
+                "address_country": null,
+                "address_line1": null,
+                "address_line1_check": null,
+                "address_line2": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_zip_check": null,
+                "brand": "Visa",
+                "country": "US",
+                "customer": "cus_7kphMQwGFEHglq",
+                "cvc_check": "pass",
+                "dynamic_last4": null,
+                "exp_month": 12,
+                "exp_year": 2020,
+                "fingerprint": "faS4loXvHw0MNPP7",
+                "funding": "credit",
+                "last4": "4242",
+                "metadata": {},
+                "name": null,
+                "tokenization_method": null
+              }
+            ],
+            "has_more": false,
+            "total_count": 1,
+            "url": "/v1/customers/cus_7kphMQwGFEHglq/sources"
+          },
+          "subscriptions": {
+            "object": "list",
+            "data": [
+              {
+                "id": "sub_7kph2t8D6WWTBC",
+                "object": "subscription",
+                "application_fee_percent": null,
+                "cancel_at_period_end": false,
+                "canceled_at": null,
+                "current_period_end": 1455967302,
+                "current_period_start": 1453288902,
+                "customer": "cus_7kphMQwGFEHglq",
+                "discount": null,
+                "ended_at": null,
+                "metadata": {},
+                "plan": {
+                  "id": "base",
+                  "object": "plan",
+                  "amount": 999,
+                  "created": 1453191080,
+                  "currency": "usd",
+                  "interval": "month",
+                  "interval_count": 1,
+                  "livemode": false,
+                  "metadata": {},
+                  "name": "base plan",
+                  "statement_descriptor": null,
+                  "trial_period_days": null
+                },
+                "quantity": 1,
+                "start": 1453288902,
+                "status": "active",
+                "tax_percent": null,
+                "trial_end": null,
+                "trial_start": null
+              }
+            ],
+            "has_more": false,
+            "total_count": 1,
+            "url": "/v1/customers/cus_7kphMQwGFEHglq/subscriptions"
           }
         }
     http_version: 
-  recorded_at: Wed, 20 Jan 2016 11:21:57 GMT
+  recorded_at: Wed, 20 Jan 2016 11:21:43 GMT
 recorded_with: VCR 3.0.0

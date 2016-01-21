@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 20 Jan 2016 09:53:25 GMT
+      - Wed, 20 Jan 2016 11:21:59 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7koHXfEksN2KhZ
+      - req_7kphRFNAW0y1Qp
       Stripe-Version:
       - '2015-10-16'
       Strict-Transport-Security:
@@ -58,10 +58,10 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_17VIeXK6bLvHx8bUl6vgOJ4W",
+          "id": "tok_17VK2FK6bLvHx8bUiqTn7PFz",
           "object": "token",
           "card": {
-            "id": "card_17VIeXK6bLvHx8bUuEr8QOqw",
+            "id": "card_17VK2FK6bLvHx8bU7P7DFhVf",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -85,19 +85,19 @@ http_interactions:
             "tokenization_method": null
           },
           "client_ip": "61.230.145.4",
-          "created": 1453283605,
+          "created": 1453288919,
           "livemode": false,
           "type": "card",
           "used": false
         }
     http_version: 
-  recorded_at: Wed, 20 Jan 2016 09:53:25 GMT
+  recorded_at: Wed, 20 Jan 2016 11:21:59 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: plan=base&source=tok_17VIeXK6bLvHx8bUl6vgOJ4W
+      string: plan=base&source=tok_17VK2FK6bLvHx8bUiqTn7PFz
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -123,7 +123,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 20 Jan 2016 09:53:27 GMT
+      - Wed, 20 Jan 2016 11:22:01 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_7koHSTuUREKkqs
+      - req_7kphZzirSOdMqE
       Stripe-Version:
       - '2015-10-16'
     body:
@@ -156,5 +156,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 20 Jan 2016 09:53:27 GMT
+  recorded_at: Wed, 20 Jan 2016 11:22:01 GMT
 recorded_with: VCR 3.0.0

@@ -66,6 +66,10 @@ module StripeWrapper
       error_message == nil
     end
 
+    def customer_token
+      response.id
+    end
+
   end
 
 end

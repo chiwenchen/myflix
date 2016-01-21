@@ -77,9 +77,27 @@ describe "create event on successful charge", :vcr do
     }
   }
 
-  it "create a payment event with successfule charge" do 
+  it "creates a payment event with successfule charge" do 
     post '/stripe_events', event_object
     expect(Payment.count).to eq(1)
   end
+
+  it "creates a payment associated with user" do 
+    sammy = Fabricate(:user, customer_token: "cus_7kmNk9Zw15oi4B")
+    post '/stripe_events', event_object
+    expect(Payment.first.user).to eq(sammy)
+  end
+
+  it "creates a payment associated with amount" do 
+    sammy = Fabricate(:user, customer_token: "cus_7kmNk9Zw15oi4B")
+    post '/stripe_events', event_object
+    expect(Payment.first.amount).to eq(999)
+  end  
+
+  it "creates a payment associated with the reference_id" do 
+    sammy = Fabricate(:user, customer_token: "cus_7kmNk9Zw15oi4B")
+    post '/stripe_events', event_object
+    expect(Payment.first.reference_id).to eq("ch_17VGozK6bLvHx8bUMIV7chvK")
+  end  
   
 end

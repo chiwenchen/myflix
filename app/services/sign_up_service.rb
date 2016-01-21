@@ -13,6 +13,7 @@ class SignUpService
     if user.valid?
       customer = customer(token, user)
       if customer.successful?
+        user.customer_token = customer.customer_token
         user.save
         AppMailer.delay.send_welcome_message(@user)
         connect_user_and_inviter(user, invitation_token)
