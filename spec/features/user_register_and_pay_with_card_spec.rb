@@ -11,7 +11,7 @@ feature 'user register and pay with card', :js, :vcr do
 
   scenario 'with valid user info and invalid card' do 
     fill_in_form('password','123')
-    expect(page).to have_content 'This card number looks invalid.'
+    expect(page).to have_content 'The card number is not a valid credit card number.'
   end
 
   scenario 'with valid user info and declined card' do 
@@ -26,7 +26,7 @@ feature 'user register and pay with card', :js, :vcr do
 
   scenario 'with invalid user info and invalid card' do 
     fill_in_form(nil,'123')
-    expect(page).to have_content 'This card number looks invalid.'
+    expect(page).to have_content 'The card number is not a valid credit card number.'
   end
 
   scenario 'with invalid user info and declined card' do 
