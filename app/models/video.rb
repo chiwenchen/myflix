@@ -1,10 +1,5 @@
 class Video < ActiveRecord::Base
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Serializing
-  include Elasticsearch::Model::Callbacks
-  index_name ['myflix', Rails.env].join('_')
-
   belongs_to :category
   has_many :queue_items
   has_many :reviews, -> { order 'created_at DESC' }
