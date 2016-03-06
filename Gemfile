@@ -22,8 +22,7 @@ gem 'figaro'
 gem 'draper'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-
-
+gem 'grape'
 
 group :development do
   gem 'thin'

@@ -25,7 +25,7 @@ class SignUpService
       end
     else
       @status = :warning
-      @message = 'user info is not valid, please fullfil the column highlighted'
+      @message = 'user info is not valid, please fulfill the column highlighted'
     end
     self
   end
