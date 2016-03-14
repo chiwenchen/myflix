@@ -1,0 +1,19 @@
+test:
+
+  STRIPE_SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
+  STRIPE_PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
+
+development:
+
+  STRIPE_SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
+  STRIPE_PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
+
+production:
+
+  STRIPE_SECRET_KEY: "sk_live_qVR4Ujqng0u1qkm0o19raZK4"
+  STRIPE_PUBLISH_KEY: "pk_live_RtNV2qUiuM09Wgpap6U2KbVi"
+
+staging: 
+
+  STRIPE_SECRET_KEY: "sk_test_zQGPrRr1mLOGMn9kY1fHLcqH"
+  STRIPE_PUBLISH_KEY: "pk_test_0oQRDCrrnEWxCN7PoAhYJ2aL"
