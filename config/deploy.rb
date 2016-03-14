@@ -3,7 +3,7 @@
 lock '3.4.0'
 
 set :application, 'myflix'
-set :repo_url, 'git@github.com:chiwenchen/myflix.git'
+set :repo_url, 'https://github.com/chiwenchen/myflix.git'
 set :deploy_to, '/home/deploy/myflix'
 set :keep_releases, 5
 
